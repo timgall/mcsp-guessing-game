@@ -1,30 +1,31 @@
 
-let messageInput = prompt("Please enter a number to play!")
-let userInput = Number(messageInput);
-let answer = 7;
-//let testCase = "";
-let tries =0;
-let previousInputs=[]
+let secretNumber = Math.floor(Math.random() * 20)+1;
+let numTries = 0;
+let previousAnswers = []
 
-
-while(userInput !==answer||!Number.isInteger(userInput)){
-    if(userInput<answer){
-        userInput = Number(prompt('Guess higher'))
-        tries +=1
-        previousInputs.push(" " +userInput)
-    }
-    else if(userInput>answer){
-        userInput = Number(prompt('Guess lower'))
-        tries +=1
-        previousInputs.push(" " +userInput)
-    }
-    else if(!Number.isInteger(userInput)){
-        userInput = Number(prompt("Please use a whole number and try again."))
-        tries +=1
-        previousInputs.push(" " +userInput)
+while(true){
+let input = prompt("Guess a number")
+let number = Number(input);    
+    if(input===null){
+        alert("Goodbye, quitter!");
+        break
+    }else if(!Number.isInteger(number)|| number===""){
+        alert("Enter a integer")
+        numTries+=1;
+        previousAnswers.push(" "+number)
+    }else {
+        if(number === secretNumber){
+             alert("Correct! It only took you "+numTries+ " guesses!  Your previous guesses were"+ previousAnswers+".")
+             numTries+=1;
+             break
+        }else if(number<secretNumber){
+            alert("Guess higher!")
+            previousAnswers.push(" "+number)
+            numTries+=1;   
+        }else{
+            alert('Guess lower!')
+            previousAnswers.push(" "+number)
+            numTries+=1;
+        } 
     }
 }
-if(userInput === answer){
-    alert('Correct! Your previous guesses were' + previousInputs+"!")
-}
-
