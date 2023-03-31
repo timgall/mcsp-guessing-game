@@ -1,37 +1,48 @@
 
 let secretNumber = Math.floor(Math.random() * 20)+1;
-// let numTries = 0;
-let previousAnswers = []
+//let previousAnswers = []
+let numTries = 0
 let nameResponse=[]
-// let previousScores=[]
-
-let name = prompt("What is your name?")
-nameResponse.push(name)
-
-while(true){
-    let input = prompt("Guess a number")
-let number = Number(input);
-previousAnswers.push(" "+number)
-    if(input===null){
-        alert("Goodbye, quitter!");
-        break
-    }else if(!Number.isInteger(number)|| number===""){
-        alert("Enter a integer")
-        // numTries+=1;
-    }else {
-        if(number === secretNumber){
-             alert("Correct " + nameResponse + "! Your previous guesses were "+ previousAnswers+".")
-             numTries+=1;
-             break
-        }else if(number<secretNumber){
-            alert("Sorry, "+nameResponse+" guess higher!")
-            // numTries+=1;   
-        }else{
-            alert("Sorry, "+nameResponse+"  lower!")
-            // numTries+=1;
-        } 
-    }
-
+let previousAnswers=[]
+//let pastPlayers={}
+function playerName(){
+    let name = prompt("What is your name?") 
+    nameResponse.push(name);
 }
-            // console.log(previousScores.push("Correct " + nameResponse + "! Your previous guesses were "+ previousAnswers+"."))             
-            // alert(previousScores)
+function play(){
+    while(true){
+        let input = prompt("Guess a number");
+    let number = Number(input);
+    previousAnswers.push(" "+number)
+        if(input===null){
+            alert("Goodbye, quitter!");
+            break
+        }else if(!Number.isInteger(number)|| number===""){
+            alert("Enter a integer");
+        }else {
+            if(number === secretNumber){
+                alert("Correct " + nameResponse + "! Your previous guesses were "+previousAnswers+".");
+                numTries+=1;
+                break
+            }else if(number<secretNumber){
+                alert("Sorry,"+nameResponse+" guess higher!") 
+            }else{
+                alert("Sorry,"+nameResponse+"  lower!")
+            } 
+        }
+
+    }
+}
+playerName()
+
+play()
+
+function replayFunction(){
+    let replayRequest = prompt("Would you like to play again?")
+    if(replayRequest !== "Yes"){
+        alert("Goodbye " + nameResponse + "!")
+    }    else{
+        play()
+    }
+}
+replayFunction()
