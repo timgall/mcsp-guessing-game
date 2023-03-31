@@ -3,6 +3,7 @@ let secretNumber = Math.floor(Math.random() * 20)+1;
 // let numTries = 0;
 let previousAnswers = []
 let nameResponse=[]
+// let previousScores=[]
 
 let name = prompt("What is your name?")
 nameResponse.push(name)
@@ -30,4 +31,7 @@ previousAnswers.push(" "+number)
             // numTries+=1;
         } 
     }
+
 }
+            // console.log(previousScores.push("Correct " + nameResponse + "! Your previous guesses were "+ previousAnswers+"."))             
+            // alert(previousScores)
