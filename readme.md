@@ -10,7 +10,7 @@
  - Files / Folder Navigation
  - Git & Github
 
-**Note:** The information provided here is for your convenience. Please follow a long in class and refer to the in-class discussion for what you should be doing.
+**Note:** The information provided here are for your convenience. Please follow a long in class and refer to the in-class discussion for what you should be doing.
 
 **Getting started:**
 
