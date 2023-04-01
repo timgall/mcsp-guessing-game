@@ -1,5 +1,5 @@
 
-let secretNumber = Math.floor(Math.random() * 20)+1;
+// let secretNumber = Math.floor(Math.random() * 20)+1;
 //let previousAnswers = []
 let numTries = 0
 let nameResponse=[]
@@ -10,6 +10,7 @@ function playerName(){
     nameResponse.push(name);
 }
 function play(){
+    let secretNumber = Math.floor(Math.random() * 20)+1;
     while(true){
         let input = prompt("Guess a number");
     let number = Number(input);
@@ -17,7 +18,7 @@ function play(){
         if(input===null){
             alert("Goodbye, quitter!");
             break
-        }else if(!Number.isInteger(number)|| number===""){
+        }else if(!Number.isInteger(number)||number===""){
             alert("Enter a integer");
         }else {
             if(number === secretNumber){
@@ -27,22 +28,23 @@ function play(){
             }else if(number<secretNumber){
                 alert("Sorry,"+nameResponse+" guess higher!") 
             }else{
-                alert("Sorry,"+nameResponse+"  lower!")
+                alert("Sorry,"+nameResponse+" lower!")
             } 
         }
 
     }
 }
-playerName()
-
-play()
-
 function replayFunction(){
     let replayRequest = prompt("Would you like to play again?")
-    if(replayRequest !== "Yes"){
-        alert("Goodbye " + nameResponse + "!")
-    }    else{
-        play()
+    if(replayRequest === ("Yes"||"yes"||"y"||"Y")){
+        play()    
+        }    else{
+            alert("Goodbye " + nameResponse + "!")
     }
 }
-replayFunction()
+playerName()
+
+while(true){
+    play()
+    replayFunction()
+}
