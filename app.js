@@ -44,6 +44,7 @@ function updateGameHistory(name, finalCount){
     //if there is no data for game player then this creates a key by their name and a value that is their finalCount.
     if(!gameHistory[name]){
     gameHistory[name]=finalCount;
+    alert("Thats correct!")
     console.log(`Game History: ${JSON.stringify(gameHistory)}`)//JSON.stringify converts it from the type to the literal string
     }else if(gameHistory[name]<=finalCount){
         let scoreDiff = finalCount - gameHistory[name]
